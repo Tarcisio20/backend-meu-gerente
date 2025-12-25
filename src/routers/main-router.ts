@@ -4,4 +4,4 @@ import * as authController from '../controllers/auth.js'
 export const mainRouter = Router()
 
 
-mainRouter.get('/register', authController.register)
+mainRouter.post('/register', authController.register)
