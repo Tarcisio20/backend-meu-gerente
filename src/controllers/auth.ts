@@ -34,7 +34,8 @@ export const register: RequestHandler = async (req, res) => {
         first_name: data.first_name,
         last_name: data.last_name,
         email: data.email,
-        password_hash
+        password: password_hash
     })
-    return ok(res, 201, "Usuário criado com sucesso", { email: data.email });
+    if (!user) return fail(res, 500, "Erro ao criar usuário", null);
+    return ok(res, 201, "Usuário criado com sucesso", user);
 }
